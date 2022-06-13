@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{72b675c4-4c77-e910-7b2e-d4192652fae3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tayx.Graphy", "Tayx.Graphy.csproj", "{ea9a6c95-e558-e5c4-4f25-63f6925ae556}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NavMeshComponents", "NavMeshComponents.csproj", "{94d3e4fc-13e6-5d5c-86b3-220ffa246a3f}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tayx.Graphy.Editor", "Tayx.Graphy.Editor.csproj", "{ed161268-7d83-e69c-cef0-e3b758ced7de}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{0b5eca37-6085-0e5f-3b74-09431f38a7e6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NavMeshComponentsEditor", "NavMeshComponentsEditor.csproj", "{6d04811d-caab-3faa-d86c-081e40ea6fd5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{72b675c4-4c77-e910-7b2e-d4192652fae3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72b675c4-4c77-e910-7b2e-d4192652fae3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ea9a6c95-e558-e5c4-4f25-63f6925ae556}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ea9a6c95-e558-e5c4-4f25-63f6925ae556}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94d3e4fc-13e6-5d5c-86b3-220ffa246a3f}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94d3e4fc-13e6-5d5c-86b3-220ffa246a3f}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ed161268-7d83-e69c-cef0-e3b758ced7de}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ed161268-7d83-e69c-cef0-e3b758ced7de}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0b5eca37-6085-0e5f-3b74-09431f38a7e6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0b5eca37-6085-0e5f-3b74-09431f38a7e6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6d04811d-caab-3faa-d86c-081e40ea6fd5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6d04811d-caab-3faa-d86c-081e40ea6fd5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
