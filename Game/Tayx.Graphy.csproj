@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{ea9a6c95-e558-e5c4-4f25-63f6925ae556}</ProjectGuid>
+    <ProjectGuid>{7d4fc927-38a9-b3dd-4371-af0723d2c0fb}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Tayx.Graphy</AssemblyName>
@@ -310,31 +310,31 @@
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.1f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
-        <HintPath>C:\Users\Projects\S.O.T.D\Library\PackageCache\com.unity.collab-proxy@1.15.18\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
+        <HintPath>C:\Users\Projects\S.O.T.D\Game\Library\PackageCache\com.unity.collab-proxy@1.15.18\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
-        <HintPath>C:\Users\Projects\S.O.T.D\Library\PackageCache\com.unity.collab-proxy@1.15.18\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
+        <HintPath>C:\Users\Projects\S.O.T.D\Game\Library\PackageCache\com.unity.collab-proxy@1.15.18\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="unityplastic">
-        <HintPath>C:\Users\Projects\S.O.T.D\Library\PackageCache\com.unity.collab-proxy@1.15.18\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
+        <HintPath>C:\Users\Projects\S.O.T.D\Game\Library\PackageCache\com.unity.collab-proxy@1.15.18\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Unsafe">
-        <HintPath>C:\Users\Projects\S.O.T.D\Library\PackageCache\com.unity.burst@1.6.5\Unity.Burst.Unsafe.dll</HintPath>
+        <HintPath>C:\Users\Projects\S.O.T.D\Game\Library\PackageCache\com.unity.burst@1.6.5\Unity.Burst.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Cecil.Mdb">
-        <HintPath>C:\Users\Projects\S.O.T.D\Library\PackageCache\com.unity.burst@1.6.5\Unity.Burst.CodeGen\Unity.Burst.Cecil.Mdb.dll</HintPath>
+        <HintPath>C:\Users\Projects\S.O.T.D\Game\Library\PackageCache\com.unity.burst@1.6.5\Unity.Burst.CodeGen\Unity.Burst.Cecil.Mdb.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Cecil.Pdb">
-        <HintPath>C:\Users\Projects\S.O.T.D\Library\PackageCache\com.unity.burst@1.6.5\Unity.Burst.CodeGen\Unity.Burst.Cecil.Pdb.dll</HintPath>
+        <HintPath>C:\Users\Projects\S.O.T.D\Game\Library\PackageCache\com.unity.burst@1.6.5\Unity.Burst.CodeGen\Unity.Burst.Cecil.Pdb.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Cecil">
-        <HintPath>C:\Users\Projects\S.O.T.D\Library\PackageCache\com.unity.burst@1.6.5\Unity.Burst.CodeGen\Unity.Burst.Cecil.dll</HintPath>
+        <HintPath>C:\Users\Projects\S.O.T.D\Game\Library\PackageCache\com.unity.burst@1.6.5\Unity.Burst.CodeGen\Unity.Burst.Cecil.dll</HintPath>
     </Reference>
     <Reference Include="log4netPlastic">
-        <HintPath>C:\Users\Projects\S.O.T.D\Library\PackageCache\com.unity.collab-proxy@1.15.18\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
+        <HintPath>C:\Users\Projects\S.O.T.D\Game\Library\PackageCache\com.unity.collab-proxy@1.15.18\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Cecil.Rocks">
-        <HintPath>C:\Users\Projects\S.O.T.D\Library\PackageCache\com.unity.burst@1.6.5\Unity.Burst.CodeGen\Unity.Burst.Cecil.Rocks.dll</HintPath>
+        <HintPath>C:\Users\Projects\S.O.T.D\Game\Library\PackageCache\com.unity.burst@1.6.5\Unity.Burst.CodeGen\Unity.Burst.Cecil.Rocks.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.1f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\mscorlib.dll</HintPath>
@@ -937,10 +937,10 @@
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.1f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\netstandard.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-        <HintPath>C:\Users\Projects\S.O.T.D\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+        <HintPath>C:\Users\Projects\S.O.T.D\Game\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-        <HintPath>C:\Users\Projects\S.O.T.D\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+        <HintPath>C:\Users\Projects\S.O.T.D\Game\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{8fc1fbdd-9693-3731-9cfe-deb2cdb74636}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tayx.Graphy", "Tayx.Graphy.csproj", "{7d4fc927-38a9-b3dd-4371-af0723d2c0fb}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NavMeshComponents", "NavMeshComponents.csproj", "{83afb055-218c-1018-02a4-41a75b7676ae}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tayx.Graphy.Editor", "Tayx.Graphy.Editor.csproj", "{7071fbce-2c40-7996-aab2-6af487c68767}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{26346f19-bd96-64e5-a156-57572db80a48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NavMeshComponentsEditor", "NavMeshComponentsEditor.csproj", "{ce8d7966-7e17-b605-43de-1996c8567d30}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8fc1fbdd-9693-3731-9cfe-deb2cdb74636}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8fc1fbdd-9693-3731-9cfe-deb2cdb74636}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7d4fc927-38a9-b3dd-4371-af0723d2c0fb}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7d4fc927-38a9-b3dd-4371-af0723d2c0fb}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83afb055-218c-1018-02a4-41a75b7676ae}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83afb055-218c-1018-02a4-41a75b7676ae}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7071fbce-2c40-7996-aab2-6af487c68767}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7071fbce-2c40-7996-aab2-6af487c68767}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26346f19-bd96-64e5-a156-57572db80a48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26346f19-bd96-64e5-a156-57572db80a48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ce8d7966-7e17-b605-43de-1996c8567d30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ce8d7966-7e17-b605-43de-1996c8567d30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
