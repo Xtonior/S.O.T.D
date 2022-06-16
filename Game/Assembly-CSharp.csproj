@@ -80,7 +80,6 @@
      <Compile Include="Assets\Scripts\Shooting.cs" />
      <Compile Include="Assets\JMO Assets\WarFX\Scripts\WFX_LightFlicker.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
-     <Compile Include="Assets\Scripts\Solider Enemy AI\AISensorEditor.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
      <Compile Include="Assets\Scripts\RagdollController.cs" />
      <Compile Include="Assets\Scripts\HeadBob.cs" />

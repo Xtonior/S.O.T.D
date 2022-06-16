@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -43,19 +44,24 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask groundMask;
     [SerializeField] float groundDistance = 0.2f;
+    [SerializeField] float jumpDistance = 0.3f;
     [SerializeField] float maxSlopeAngle;
     public bool isGrounded { get; private set; }
+    public bool canJump { get; private set; }
 
     Vector3 moveDirection;
     Vector3 slopeMoveDirection;
 
-    private Rigidbody rigidBody;
+    [SerializeField] Rigidbody rigidBody;
     private RaycastHit slopeHit;
 
     public bool isRunning{ get; private set; }
     public bool isWalking{ get; private set; }
 
     bool isCrouching;
+
+    [Header("Debug")]
+    [SerializeField] TMP_Text velocityText;
 
     public bool OnSlope()
     {
@@ -74,7 +80,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        rigidBody = GetComponent<Rigidbody>();
         startYscale = player.localScale.y;
         startCameraYposition = playerCamera.localPosition.y;
     }
@@ -82,14 +87,19 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        canJump = Physics.CheckSphere(groundCheck.position, jumpDistance, groundMask);
 
         SetupInput();
         ControlDrag();
         ControlSpeed();
 
-        if(Input.GetButton("Jump") && isGrounded)
+        if(Input.GetButton("Jump") && canJump)
         {
             Jump();
+            if(!isGrounded)
+            {
+                BunnyHop();
+            }
         }
 
         if(Input.GetKeyDown(KeyCode.LeftControl))
@@ -103,6 +113,10 @@ public class PlayerMovement : MonoBehaviour
         }
 
         slopeMoveDirection = Vector3.ProjectOnPlane(moveDirection, slopeHit.normal).normalized;
+
+
+
+        velocityText.text = rigidBody.velocity.magnitude.ToString();
     }
 
     void SetupInput()
@@ -135,11 +149,26 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump()
     {
-        if(isGrounded)
+        if(canJump)
         {
             rigidBody.velocity = new Vector3(rigidBody.velocity.x, 0, rigidBody.velocity.z);
             rigidBody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
         }
+    }
+
+    void BunnyHop()
+    {
+        if(rigidBody.velocity.magnitude > 0.1f)
+        {
+            rigidBody.AddForce(GetBunnyHopDirection() * GetBunnyHopDirection().magnitude * Time.deltaTime);
+        }
+    }
+
+    Vector3 GetBunnyHopDirection()
+    {
+        Vector3 velocityDirection = rigidBody.velocity.normalized;
+        Vector3 cameraDirection = playerCamera.forward;
+        return (velocityDirection + cameraDirection) / 2f;
     }
 
     void ControlSpeed()
@@ -192,5 +221,15 @@ public class PlayerMovement : MonoBehaviour
         {
             rigidBody.AddForce(moveDirection.normalized * moveSpeed * movementMultiplier * airMultiplier, ForceMode.Acceleration);
         }
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.black;
+        Gizmos.DrawLine(transform.position, rigidBody.velocity.normalized * 1000f);
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(transform.position, GetBunnyHopDirection() * 1000f);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(transform.position, playerCamera.forward * 1000f);
     }
 }
