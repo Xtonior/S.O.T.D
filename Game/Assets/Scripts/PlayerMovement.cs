@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float walkSpeed = 4f;
     [SerializeField] public float sprintSpeed { get; private set; } = 6f;
     [SerializeField] public float acceleration { get; private set; } = 10f;
+    [SerializeField] public float maxAcceleration { get; private set; } = 10f;
 
     [Header("Jumping")]
     public float jumpForce = 5f;
@@ -96,10 +97,6 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetButton("Jump") && canJump)
         {
             Jump();
-            if(!isGrounded)
-            {
-                BunnyHop();
-            }
         }
 
         if(Input.GetKeyDown(KeyCode.LeftControl))
@@ -156,19 +153,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void BunnyHop()
+    Vector3 AcceleratePlayer(Vector3 vel, Vector3 wishdir)
     {
-        if(rigidBody.velocity.magnitude > 0.1f)
-        {
-            rigidBody.AddForce(GetBunnyHopDirection() * GetBunnyHopDirection().magnitude * Time.deltaTime);
-        }
-    }
-
-    Vector3 GetBunnyHopDirection()
-    {
-        Vector3 velocityDirection = rigidBody.velocity.normalized;
-        Vector3 cameraDirection = playerCamera.forward;
-        return (velocityDirection + cameraDirection) / 2f;
+        float currentSpeed = Vector3.Dot(vel, wishdir);
+        float addspeed = sprintSpeed - walkSpeed;
+        addspeed = Mathf.Min(addspeed, maxAcceleration * Time.deltaTime);
+        return vel + wishdir * addspeed;
     }
 
     void ControlSpeed()
@@ -209,6 +199,8 @@ public class PlayerMovement : MonoBehaviour
 
     void MovePlayer()
     {
+        AcceleratePlayer(rigidBody.velocity, playerCamera.forward);
+
         if(isGrounded && !OnSlope())
         {
             rigidBody.AddForce(moveDirection.normalized * moveSpeed * movementMultiplier, ForceMode.Acceleration);
@@ -228,8 +220,5 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.color = Color.black;
         Gizmos.DrawLine(transform.position, rigidBody.velocity.normalized * 1000f);
         Gizmos.color = Color.green;
-        Gizmos.DrawLine(transform.position, GetBunnyHopDirection() * 1000f);
-        Gizmos.color = Color.blue;
-        Gizmos.DrawLine(transform.position, playerCamera.forward * 1000f);
     }
 }
