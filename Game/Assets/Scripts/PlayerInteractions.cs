@@ -112,7 +112,9 @@ public class PlayerInteractions : MonoBehaviour
             targetPos = playerCamera.transform.position + playerCamera.transform.forward * 2.5f;
             hObjectRigidbody.velocity = (targetPos - (hObjectRigidbody.transform.position + hObjectRigidbody.centerOfMass)) * 20f;
 
-            hObject.transform.rotation = Quaternion.LookRotation(playerCamera.forward);
+            Quaternion quaternion = hObject.transform.rotation;
+            quaternion *= holder.rotation;
+            hObject.transform.rotation = quaternion;
         }
 
         if(Vector3.Distance(hObject.transform.position, holder.position) > rayDistance)

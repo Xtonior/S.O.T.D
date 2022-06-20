@@ -27,9 +27,9 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Sprinting")]
     [SerializeField] float walkSpeed = 4f;
-    [SerializeField] public float sprintSpeed { get; private set; } = 6f;
-    [SerializeField] public float acceleration { get; private set; } = 10f;
-    [SerializeField] public float maxAcceleration { get; private set; } = 10f;
+    [field: SerializeField] public float sprintSpeed { get; private set; } = 6f;
+    [field: SerializeField] public float acceleration { get; private set; } = 10f;
+    [field: SerializeField] public float maxAcceleration { get; private set; } = 10f;
 
     [Header("Jumping")]
     public float jumpForce = 5f;
@@ -60,9 +60,6 @@ public class PlayerMovement : MonoBehaviour
     public bool isWalking{ get; private set; }
 
     bool isCrouching;
-
-    [Header("Debug")]
-    [SerializeField] TMP_Text velocityText;
 
     public bool OnSlope()
     {
@@ -110,10 +107,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         slopeMoveDirection = Vector3.ProjectOnPlane(moveDirection, slopeHit.normal).normalized;
-
-
-
-        velocityText.text = rigidBody.velocity.magnitude.ToString();
     }
 
     void SetupInput()
@@ -129,9 +122,6 @@ public class PlayerMovement : MonoBehaviour
         player.localScale = new Vector3(player.localScale.x, crouchYscale, player.localScale.z);
         playerCamera.localPosition = new Vector3(playerCamera.localPosition.x, crouchCameraYposition, playerCamera.localPosition.z);
         
-        if(isGrounded)
-            moveSpeed = crouchSpeed;
-        
         isCrouching = true;
     }
 
@@ -139,7 +129,6 @@ public class PlayerMovement : MonoBehaviour
     {
         player.localScale = new Vector3(player.localScale.x, startYscale, player.localScale.z);
         playerCamera.localPosition = new Vector3(playerCamera.localPosition.x, startCameraYposition, playerCamera.localPosition.z);
-        moveSpeed = walkSpeed;
 
         isCrouching = false;
     }
@@ -153,13 +142,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    Vector3 AcceleratePlayer(Vector3 vel, Vector3 wishdir)
-    {
-        float currentSpeed = Vector3.Dot(vel, wishdir);
-        float addspeed = sprintSpeed - walkSpeed;
-        addspeed = Mathf.Min(addspeed, maxAcceleration * Time.deltaTime);
-        return vel + wishdir * addspeed;
-    }
 
     void ControlSpeed()
     {
@@ -199,8 +181,6 @@ public class PlayerMovement : MonoBehaviour
 
     void MovePlayer()
     {
-        AcceleratePlayer(rigidBody.velocity, playerCamera.forward);
-
         if(isGrounded && !OnSlope())
         {
             rigidBody.AddForce(moveDirection.normalized * moveSpeed * movementMultiplier, ForceMode.Acceleration);
@@ -213,12 +193,5 @@ public class PlayerMovement : MonoBehaviour
         {
             rigidBody.AddForce(moveDirection.normalized * moveSpeed * movementMultiplier * airMultiplier, ForceMode.Acceleration);
         }
-    }
-
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.black;
-        Gizmos.DrawLine(transform.position, rigidBody.velocity.normalized * 1000f);
-        Gizmos.color = Color.green;
     }
 }
