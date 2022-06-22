@@ -133,9 +133,7 @@ public class AssaultRifle : Weapon
                 /*CreateBulletImpact(bulletImpact, hit);
                 CreateBulletHole(bulletHoleDecal, hit);*/
 
-                CreateBloodSplash(hit);
-
-                bloodSplash.CreateSplash(direction, hit.transform.gameObject);
+                CreateBulletHole(bulletHoleDecal, hit);
             }
         }
 

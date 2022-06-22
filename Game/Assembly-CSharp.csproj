@@ -47,6 +47,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
      <Compile Include="Assets\Scripts\RecoilSystem.cs" />
      <Compile Include="Assets\Scripts\PlayerInteractions.cs" />
+     <Compile Include="Assets\Scripts\Hands.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
      <Compile Include="Assets\Scripts\AssaultRifle.cs" />
      <Compile Include="Assets\Scripts\Solider Enemy AI\SoliderShooting.cs" />
