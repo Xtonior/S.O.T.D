@@ -16,14 +16,14 @@ public class PlayerMovement : MonoBehaviour
     float movementMultiplier = 10f;
 
     [Header("Crouching")]
-    [SerializeField] float crouchYscale;
-    [SerializeField] float crouchCameraYposition;
-    [SerializeField] Transform player;
+    [SerializeField] float crouchHeight;
+    [SerializeField] float toCrouchSpeed;
+    [SerializeField] CapsuleCollider playerCollider;
     [SerializeField] Transform playerCamera;
     [SerializeField] float crouchSpeed;
+    [SerializeField] Vector3 offset;
 
-    private float startYscale;
-    private float startCameraYposition;
+    [SerializeField] float startHeight;
 
     [Header("Sprinting")]
     [SerializeField] float walkSpeed = 4f;
@@ -60,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isWalking{ get; private set; }
 
     bool isCrouching;
+    float currentHeight;
 
     public bool OnSlope()
     {
@@ -78,8 +79,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        startYscale = player.localScale.y;
-        startCameraYposition = playerCamera.localPosition.y;
+        startHeight = playerCollider.height;
     }
 
     private void Update()
@@ -100,11 +100,11 @@ public class PlayerMovement : MonoBehaviour
         {
             CrouchStart();
         }
-        
         if(Input.GetKeyUp(KeyCode.LeftControl))
         {
             CrouchEnd();
         }
+        
 
         slopeMoveDirection = Vector3.ProjectOnPlane(moveDirection, slopeHit.normal).normalized;
     }
@@ -119,16 +119,18 @@ public class PlayerMovement : MonoBehaviour
 
     void CrouchStart()
     {
-        player.localScale = new Vector3(player.localScale.x, crouchYscale, player.localScale.z);
-        playerCamera.localPosition = new Vector3(playerCamera.localPosition.x, crouchCameraYposition, playerCamera.localPosition.z);
-        
+        playerCollider.height = crouchHeight;
         isCrouching = true;
     }
 
     void CrouchEnd()
     {
-        player.localScale = new Vector3(player.localScale.x, startYscale, player.localScale.z);
-        playerCamera.localPosition = new Vector3(playerCamera.localPosition.x, startCameraYposition, playerCamera.localPosition.z);
+        playerCollider.height = startHeight;
+        
+        if(isGrounded)
+        {
+            transform.position += offset;
+        }
 
         isCrouching = false;
     }
