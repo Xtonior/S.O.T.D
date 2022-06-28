@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class RecoilSystem : MonoBehaviour
 {
-    public Weapon weapon;
-
     [SerializeField] private float recoilX;
     [SerializeField] private float recoilY;
     [SerializeField] private float recoilZ;
@@ -13,16 +11,6 @@ public class RecoilSystem : MonoBehaviour
 
     private Vector3 currentRotation;
     private Vector3 targetRotation;
-    
-    private void OnEnable()
-    {
-        weapon.OnAttack += RecoilFire;
-    }
-
-    private void OnDisable()
-    {
-        weapon.OnAttack -= RecoilFire;
-    }
 
     void Update()
     {

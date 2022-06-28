@@ -10,6 +10,7 @@ public class WeaponSwitching : MonoBehaviour
 
     private int selectedWeapon;
     private float lastSwitchTime;
+    public Transform currentWeapon { get; private set; }
 
     private void Start()
     {
@@ -59,6 +60,7 @@ public class WeaponSwitching : MonoBehaviour
         for (int i = 0; i < weapons.Length; i++)
         {
             weapons[i].gameObject.SetActive(i == index);
+            currentWeapon = weapons[i];
         }
 
         lastSwitchTime = 0f;    

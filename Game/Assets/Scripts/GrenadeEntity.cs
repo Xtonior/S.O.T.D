@@ -4,12 +4,28 @@ using UnityEngine;
 
 public class GrenadeEntity : MonoBehaviour
 {
-    [SerializeField] float throwForce;
+    [SerializeField] float defaultThrowForce;
+    [SerializeField] float delay;
+    [SerializeField] Explosion explosion;
     private Rigidbody rb;
 
-    public void Throw(Vector3 dir)
+    public void Throw(Vector3 dir, float throwForce)
     {
         rb = GetComponent<Rigidbody>();
-        rb.AddForce(dir * throwForce);
+        rb.AddForce(dir * Mathf.Max(throwForce, defaultThrowForce), ForceMode.Impulse);
+        rb.AddTorque(dir * Mathf.Max(throwForce, defaultThrowForce), ForceMode.Impulse);
+        StartCountdown();
+    }
+
+    public void StartCountdown()
+    {
+        StartCoroutine(Countdown());
+    }
+
+    IEnumerator Countdown()
+    {
+        yield return new WaitForSeconds(delay);
+        explosion.Explode();
+        Destroy(gameObject, 0.1f);
     }
 }

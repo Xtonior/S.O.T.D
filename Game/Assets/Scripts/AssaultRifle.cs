@@ -14,7 +14,7 @@ public class AssaultRifle : Weapon
     [SerializeField] private GameObject bulletHoleDecal;
     [SerializeField] private GameObject bloodSplashDecal;
 
-    [SerializeField] private BloodSplash bloodSplash;
+    //[SerializeField] private BloodSplash bloodSplash;
 
     [SerializeField] private TrailRenderer bulletTrail;
     
@@ -118,23 +118,13 @@ public class AssaultRifle : Weapon
                 hit.rigidbody.AddForce(direction * impactForce);
             }
         
+            recoilSystem.RecoilFire();
+
             TrailRenderer trail = Instantiate(bulletTrail, muzzle.position, Quaternion.identity);
 
             StartCoroutine(SpawnTrails(trail, hit));
             
-            if(hit.transform.gameObject.layer == dummyLayerMask)
-            {
-                Debug.Log("a");
-                CreateBloodSplash(hit);
-                bloodSplash.CreateSplash(direction, hit.transform.gameObject);
-            }
-            else
-            {
-                /*CreateBulletImpact(bulletImpact, hit);
-                CreateBulletHole(bulletHoleDecal, hit);*/
-
-                CreateBulletHole(bulletHoleDecal, hit);
-            }
+            CreateBulletHole(bulletHoleDecal, hit);
         }
 
         currentAmmo -= shootCost;
