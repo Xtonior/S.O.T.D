@@ -17,16 +17,6 @@ public class RotatingDoor : MonoBehaviour
 
     private Coroutine AnimationCoroutine;
 
-    void OnEnable()
-    {
-        playerInteractions.onUse += Iteract;
-    }
-
-    void OnDisable()
-    {
-        playerInteractions.onUse -= Iteract;
-    }
-
     private void Awake()
     {
         StartRotation = transform.rotation.eulerAngles;

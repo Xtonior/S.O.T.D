@@ -18,10 +18,16 @@ public class Explosion : MonoBehaviour
         {
             Rigidbody rb = overlapColliders[i].attachedRigidbody;
             PlayerStats playerStats = overlapColliders[i].GetComponentInParent<PlayerStats>();
+            FlameableBarrel flameableBarrel = overlapColliders[i].GetComponent<FlameableBarrel>();
 
             if(playerStats)
             {
                 playerStats.TakeDamage(damage);
+            }
+
+            if(flameableBarrel)
+            {
+                flameableBarrel.TakeDamage(damage);
             }
 
             if(rb)
@@ -31,5 +37,11 @@ public class Explosion : MonoBehaviour
                 explosionEffect.Play();
             }
         }
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawSphere(transform.position, radius);
     }
 }

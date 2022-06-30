@@ -24,32 +24,31 @@ public class FlameableBarrel : MonoBehaviour
 
     void Explode()
     {
-
+        explosion.Explode();
+        Destroy(gameObject, 0.2f);
     }
 
     void Burn()
     {
-        
+        timer -= hitEvery * Time.deltaTime;
+        fire.Play();
+        if(timer <= 0)
+        {
+            timer = lifeTime + Random.Range(-1f, 1f);
+            TakeDamage(10);
+        }
     }
 
     void Update()
     {
         if(health <= 80)
         {
-            timer -= hitEvery * Time.deltaTime;
-            fire.Play();
-        }
-
-        if(timer <= 0)
-        {
-            timer = lifeTime;
-            TakeDamage(10);
+            Burn();
         }
 
         if(health <= 0)
         {
-            explosion.Explode();
-            Destroy(gameObject, 0.2f);
+            Explode();
         }
     }
 }

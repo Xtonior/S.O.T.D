@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerInteractions : MonoBehaviour
 {
     [SerializeField] private Transform playerCamera;
+    [SerializeField] private Transform orientation;
     [SerializeField] private float rayDistance; 
 
     [Header("PickUp")]
@@ -21,16 +22,16 @@ public class PlayerInteractions : MonoBehaviour
 
     RaycastHit hit;
 
-    public Action onUse;
-
     private Vector3 targetPos;
     private float delta;
+    private float newDelta;
+
 
 
 
     [Header("Debugging")]
     [SerializeField] GameObject box;
-    [SerializeField] GameObject raggdoll;
+    [SerializeField] GameObject barrel;
 
 
 
@@ -64,6 +65,7 @@ public class PlayerInteractions : MonoBehaviour
             {
                 var i = Instantiate(box);
                 i.transform.position = h.point;
+                i.transform.position.Set(i.transform.position.x, i.transform.position.y + 5f, i.transform.position.z);
             }
         }
         if(Input.GetKeyDown(KeyCode.Keypad2))
@@ -72,8 +74,9 @@ public class PlayerInteractions : MonoBehaviour
 
             if(Physics.Raycast(transform.position, holder.forward, out h, 200f))
             {
-                var i = Instantiate(raggdoll);
+                var i = Instantiate(barrel);
                 i.transform.position = h.point;
+                i.transform.position.Set(i.transform.position.x, i.transform.position.y + 5f, i.transform.position.z);
             }
         }
     }
@@ -109,11 +112,16 @@ public class PlayerInteractions : MonoBehaviour
             targetPos = playerCamera.transform.position + playerCamera.transform.forward * 2.5f;
             hObjectRigidbody.velocity = (targetPos - hObject.transform.position) * force;
 
-            Debug.Log(delta);
-
-            if(Vector3.Angle(playerCamera.forward, hObject.transform.forward) != delta)
+            if(Vector3.Angle(orientation.forward, hObject.transform.forward) < delta)
             {
-                hObject.transform.Rotate(0, delta, 0);
+                newDelta = delta - Vector3.Angle(orientation.forward, hObject.transform.forward);
+                hObject.transform.rotation = Quaternion.Euler(hObject.transform.eulerAngles.x, hObject.transform.eulerAngles.y + newDelta, hObject.transform.eulerAngles.z);
+            }
+
+            if(Vector3.Angle(orientation.forward, hObject.transform.forward) > delta)
+            {
+                newDelta = Vector3.Angle(orientation.forward, hObject.transform.forward) - delta;
+                hObject.transform.rotation = Quaternion.Euler(hObject.transform.eulerAngles.x, hObject.transform.eulerAngles.y - newDelta, hObject.transform.eulerAngles.z);
             }
         }
 
@@ -136,7 +144,8 @@ public class PlayerInteractions : MonoBehaviour
 
             //hObjectRigidbody.transform.parent = holder;
             hObject = pickObject;
-            delta = Vector3.Angle(playerCamera.forward, hObject.transform.forward);
+
+            delta = Vector3.Angle(orientation.forward, hObject.transform.forward);
         }
     }
 
