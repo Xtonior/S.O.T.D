@@ -130,6 +130,11 @@ public class Shotgun : Weapon
                 {
                     hit.transform.gameObject.GetComponentInParent<BasicSoliderAI>().TakeDamage(damage);
                 }
+
+                if(hit.transform.gameObject.GetComponent<FlameableBarrel>())
+                {
+                    hit.transform.gameObject.GetComponent<FlameableBarrel>().TakeDamage(damage);
+                }
         
                 TrailRenderer trail = Instantiate(bulletTrail, muzzle.position, Quaternion.identity);
 

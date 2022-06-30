@@ -21,7 +21,7 @@ MonoBehaviour:
   m_DefaultRendererIndex: 0
   m_RequireDepthTexture: 1
   m_RequireOpaqueTexture: 1
-  m_OpaqueDownsampling: 1
+  m_OpaqueDownsampling: 0
   m_SupportsTerrainHoles: 1
   m_StoreActionsOptimization: 0
   m_SupportsHDR: 0
@@ -34,7 +34,7 @@ MonoBehaviour:
   m_MainLightShadowsSupported: 1
   m_MainLightShadowmapResolution: 2048
   m_AdditionalLightsRenderingMode: 1
-  m_AdditionalLightsPerObjectLimit: 6
+  m_AdditionalLightsPerObjectLimit: 0
   m_AdditionalLightShadowsSupported: 0
   m_AdditionalLightsShadowmapResolution: 2048
   m_AdditionalLightsShadowResolutionTierLow: 256
@@ -42,15 +42,15 @@ MonoBehaviour:
   m_AdditionalLightsShadowResolutionTierHigh: 1024
   m_ReflectionProbeBlending: 1
   m_ReflectionProbeBoxProjection: 1
-  m_ShadowDistance: 100
+  m_ShadowDistance: 350
   m_ShadowCascadeCount: 4
   m_Cascade2Split: 0.01001001
   m_Cascade3Split: {x: 0.020000001, y: 0.05}
-  m_Cascade4Split: {x: 0, y: 0.38300002, z: 0.384}
-  m_CascadeBorder: 0
-  m_ShadowDepthBias: 1
-  m_ShadowNormalBias: 1
-  m_SoftShadowsSupported: 1
+  m_Cascade4Split: {x: 0.008571428, y: 0.08571429, z: 0.85714287}
+  m_CascadeBorder: 0.4238806
+  m_ShadowDepthBias: 0
+  m_ShadowNormalBias: 0
+  m_SoftShadowsSupported: 0
   m_ConservativeEnclosingSphere: 1
   m_NumIterationsEnclosingSphere: 64
   m_AdditionalLightsCookieResolution: 2048

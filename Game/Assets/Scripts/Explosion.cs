@@ -7,6 +7,7 @@ public class Explosion : MonoBehaviour
 {
     [SerializeField] float radius;
     [SerializeField] float explosionForce;
+    [SerializeField] int damage;
     [SerializeField] ParticleSystem explosionEffect;
 
     public void Explode()
@@ -16,6 +17,13 @@ public class Explosion : MonoBehaviour
         for (int i = 0; i < overlapColliders.Length; i++)
         {
             Rigidbody rb = overlapColliders[i].attachedRigidbody;
+            PlayerStats playerStats = overlapColliders[i].GetComponentInParent<PlayerStats>();
+
+            if(playerStats)
+            {
+                playerStats.TakeDamage(damage);
+            }
+
             if(rb)
             {
                 rb.AddExplosionForce(explosionForce, transform.position, radius);

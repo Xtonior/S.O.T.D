@@ -117,6 +117,11 @@ public class AssaultRifle : Weapon
             {
                 hit.rigidbody.AddForce(direction * impactForce);
             }
+
+            if(hit.transform.gameObject.GetComponent<FlameableBarrel>())
+            {
+                hit.transform.gameObject.GetComponent<FlameableBarrel>().TakeDamage(damage);
+            }
         
             recoilSystem.RecoilFire();
 

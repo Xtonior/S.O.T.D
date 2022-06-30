@@ -12,15 +12,11 @@ public class PlayerInteractions : MonoBehaviour
     [SerializeField] private Transform holder;
     [SerializeField] private float throwForce;
     [SerializeField] private float minimalSpeed;
-    [SerializeField] private float rotationSpeed;
-    [SerializeField] private float pickDelay;
-    [SerializeField] private float smooth;
+    [SerializeField] private float force;
 
     private GameObject hObject;
     private Rigidbody hObjectRigidbody;
     private float tmpDrag;
-    private float pickUpTime;
-    private float currentDistance;
     public PlayerStats playerStats;
 
     RaycastHit hit;
@@ -28,6 +24,7 @@ public class PlayerInteractions : MonoBehaviour
     public Action onUse;
 
     private Vector3 targetPos;
+    private float delta;
 
 
 
@@ -110,11 +107,14 @@ public class PlayerInteractions : MonoBehaviour
         if(Vector3.Distance(hObject.transform.position, holder.position) > 0.1f)
         {
             targetPos = playerCamera.transform.position + playerCamera.transform.forward * 2.5f;
-            hObjectRigidbody.velocity = (targetPos - (hObjectRigidbody.transform.position + hObjectRigidbody.centerOfMass)) * 20f;
+            hObjectRigidbody.velocity = (targetPos - hObject.transform.position) * force;
 
-            Quaternion quaternion = hObject.transform.rotation;
-            quaternion *= holder.rotation;
-            hObject.transform.rotation = quaternion;
+            Debug.Log(delta);
+
+            if(Vector3.Angle(playerCamera.forward, hObject.transform.forward) != delta)
+            {
+                hObject.transform.Rotate(0, delta, 0);
+            }
         }
 
         if(Vector3.Distance(hObject.transform.position, holder.position) > rayDistance)
@@ -136,6 +136,7 @@ public class PlayerInteractions : MonoBehaviour
 
             //hObjectRigidbody.transform.parent = holder;
             hObject = pickObject;
+            delta = Vector3.Angle(playerCamera.forward, hObject.transform.forward);
         }
     }
 
