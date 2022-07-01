@@ -32,6 +32,7 @@ public class FlameableBarrel : MonoBehaviour
     {
         timer -= hitEvery * Time.deltaTime;
         fire.Play();
+        
         if(timer <= 0)
         {
             timer = lifeTime + Random.Range(-1f, 1f);
