@@ -21,16 +21,16 @@ public class Explosion : MonoBehaviour
             {
                 Rigidbody rb = overlapColliders[i].attachedRigidbody;
                 PlayerStats playerStats = overlapColliders[i].GetComponentInParent<PlayerStats>();
-                FlameableBarrel flameableBarrel = overlapColliders[i].GetComponent<FlameableBarrel>();
+                Breakable breakable = overlapColliders[i].GetComponent<Breakable>();
 
                 if(playerStats)
                 {
                     playerStats.TakeDamage(damage);
                 }
 
-                if(flameableBarrel)
+                if(breakable)
                 {
-                    flameableBarrel.TakeDamage(damage);
+                    breakable.GetDamage(damage);
                 }
 
                 if(rb)

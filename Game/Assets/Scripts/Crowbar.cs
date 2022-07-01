@@ -8,10 +8,11 @@ public class Crowbar : MonoBehaviour
     [SerializeField] private float rayDistance;
     [SerializeField] private Transform playerCamera;
     [SerializeField] private RecoilSystem recoilSystem;
-    [SerializeField] private float delay;
-    [SerializeField] private float t;
+    [SerializeField] private float cooldown;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip attackSound;
 
-    private float timer;
+    private bool canAttack;
     private Animator animator;
     RaycastHit hit;
 
@@ -24,24 +25,32 @@ public class Crowbar : MonoBehaviour
     {
         animator.SetTrigger("Attack");
         recoilSystem.RecoilFire();
-        timer = delay;
+        
+        canAttack = false;
+
+        StartCoroutine(ResetCooldown());
+        audioSource.PlayOneShot(attackSound);
 
         if(Physics.Raycast(playerCamera.position, playerCamera.forward, out hit, rayDistance))
         {
-
+            if(hit.transform.gameObject.GetComponent<Breakable>())
+            {
+                hit.transform.gameObject.GetComponent<Breakable>().GetDamage(damage);
+            }
         }
+    }
+
+    IEnumerator ResetCooldown()
+    {
+        yield return new WaitForSeconds(cooldown);
+        canAttack = true;
     }
 
     void Update()
     {
-        if(Input.GetKey(KeyCode.H))
+        if(Input.GetKey(KeyCode.H) && canAttack)
         {
-            timer -= t * Time.deltaTime;
-
-            if(timer <= 0)
-            {
-                Attack();
-            }
+            Attack();
         }
     }
 }
