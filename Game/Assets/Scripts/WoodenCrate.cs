@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class WoodenCrate : Breakable
 {
-    [SerializeField] GameObject loot;
-
-    void Break()
+    void afterBreak()
     {
-        GameObject fractured = Instantiate(fracturedVersion, transform.position, transform.rotation);
-        Instantiate(loot, transform.position, transform.rotation);
+        base.Break();
 
         foreach(Rigidbody rigidBody in fractured.GetComponentsInChildren<Rigidbody>())
         {
@@ -24,7 +21,7 @@ public class WoodenCrate : Breakable
     {
         if(Health <= 0)
         {
-            Break();
+            afterBreak();
         }
     }
 }

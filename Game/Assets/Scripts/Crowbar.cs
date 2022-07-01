@@ -19,6 +19,7 @@ public class Crowbar : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        canAttack = true;
     }
 
     void Attack()

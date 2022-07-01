@@ -68,6 +68,7 @@
      <Compile Include="Assets\Scripts\Crowbar.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
      <Compile Include="Assets\JMO Assets\WarFX\Scripts\CFX_AutoDestructShuriken.cs" />
+     <Compile Include="Assets\Scripts\Breakable.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
@@ -81,6 +82,7 @@
      <Compile Include="Assets\Scripts\Solider Enemy AI\BasicSoliderAI.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
+     <Compile Include="Assets\Scripts\WoodenCrate.cs" />
      <Compile Include="Assets\Simple Crosshair Generator\Scripts\Example\Utility\DisableOnPlay.cs" />
      <Compile Include="Assets\Scripts\Solider Enemy AI\AiSensor.cs" />
      <Compile Include="Assets\Scripts\Shooting.cs" />
@@ -114,8 +116,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\Scripts\GrenadeEntity.cs" />
      <Compile Include="Assets\Scripts\PlayerStats.cs" />
-     <Compile Include="Assets\Scripts\Breakable.cs" />
-     <Compile Include="Assets\Scripts\WoodenCrate.cs" />
+     <Compile Include="Assets\Scripts\SimpleAudioPlayer.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\JMO Assets\WarFX\Shaders\WFX_S Multiply Soft.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />

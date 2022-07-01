@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HeadBob : MonoBehaviour
@@ -19,7 +17,7 @@ public class HeadBob : MonoBehaviour
     private float frequency;
     private PlayerMovement controller;
 
-    private void Awake()
+    private void Start()
     {
         controller = GetComponent<PlayerMovement>();
         startPosition = playerCamera.localPosition;
@@ -29,7 +27,6 @@ public class HeadBob : MonoBehaviour
     {
         CheckMotion();
         ResetPosition();
-        //playerCamera.LookAt(FocusTarget());
     }
 
     private void CheckMotion()

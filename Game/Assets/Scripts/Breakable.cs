@@ -5,11 +5,14 @@ using UnityEngine;
 public abstract class Breakable : MonoBehaviour
 {
     public GameObject fracturedVersion;
+    public GameObject loot;
     public float Health;
     public float breakForce;
     public AudioSource audioSource;
     public AudioClip damageSound;
     public AudioClip breakSound;
+
+    public GameObject fractured { get; protected set; }
 
     public void GetDamage(float damage)
     {
@@ -17,8 +20,10 @@ public abstract class Breakable : MonoBehaviour
         audioSource.PlayOneShot(damageSound);
     }
 
-    void Break()
+    public virtual void Break()
     {
-        audioSource.PlayOneShot(breakSound);
+        fractured = Instantiate(fracturedVersion, transform.position, transform.rotation);
+        fractured.GetComponent<SimpleAudioPlayer>().PlayOneShot(breakSound);
+        Instantiate(loot, transform.position, transform.rotation);
     }
 }
